@@ -1,0 +1,113 @@
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    overflow-y: scroll;
+    padding: 60px 0;
+    z-index: 200;
+    transition: 2s;
+}
+
+  .overlay.overlay-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .overlay form {
+    position: relative;
+    max-width: 570px;
+    border-radius: 10px;
+    background-color: #fff;
+    background-image: url('../../assets/img/popup-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 95%;
+    opacity: 1;
+    /* overflow: hidden; */
+    margin: auto;
+    z-index: 500;
+  }
+  
+  .overlay form h2 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 1;
+    color: #333333;
+  }
+  
+  .overlay form .form-description {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: #505055;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .overlay form .form-inner {
+    max-width: 340px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    z-index: 10;
+    position: relative;
+  }
+
+  .overlay form .form-inner .form-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+  .overlay form .popup-human {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: -20%;
+    margin-bottom: -10%;
+}
+
+.policy-item .policy__checkbox {
+    height: 20px;
+    width: 20px;
+}
+
+.policy-item {
+    display: flex;
+}
+
+.policy__text {
+    margin-left: 20px;
+}
+
+#form-popup .close-item {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 300;
+}
+
+#form-popup img {
+    margin-bottom: 0px;
+}
