@@ -195,9 +195,7 @@
     color: #fff;
   }
   
-  .swiper-2 .swiper-slide {
-    width: auto;
-  }
+
   
   .swiper-pagination {
     position: relative;
@@ -327,6 +325,7 @@
     opacity: 0.64;
     margin-top: 4px;
     max-width: 23rem;
+    text-align:start;
   }
   
   .section-6 .exp-overlay {
@@ -374,4 +373,16 @@
   .section-6 .exp-overlay .exp-more img {
     width: 24px;
     height: 24px;
+  }
+
+  @media only screen and (max-width: 574px) {
+    .gugugu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .experience-wrap {
+      height: 250px;
+      margin-top: 0;
+    }
   }

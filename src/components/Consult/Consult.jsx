@@ -5,57 +5,64 @@ import Telephone from "./../../assets/svg/telephone-svgrepo-com.svg";
 import Close from './../../assets/svg/close.svg';
 import Nafisa from './../../assets/img/nafisa.png';
 import axios from 'axios';
-import { API_URL } from "../../api/api";
 import SuccessModal from "./SuccessModal";
+import { useTranslation } from 'react-i18next';
 
 export const Consult = ({ closeModal }) => {
 	const [name, setName] = useState('');
 	const [tel, setTel] = useState('');
-
-	console.log(name);
-	console.log(tel);
+  const { t } = useTranslation();
 
 
 	const handleNameChange = (e) => setName(e.target.value);
-  	const handleTelChange = (e) => setTel(e.target.value);
+  const handleTelChange = (e) => setTel(e.target.value);
 
-	  const handleSubmit = async (e) => {
-		e.preventDefault(); // Prevents the default form submission behavior
-	
-		try {
-		  await axios.post(`${API_URL}submit-form`, { name, phone: tel });
-		  <SuccessModal />
-		  // Optionally reset the form here
-		  setName('');
-		  setTel('');
-		} catch (error) {
-		  console.error('Error submitting form: ', error);
-		  alert('Failed to submit the form');
-		}
-	  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Предотвращение стандартного поведения формы
+
+    // Создание FormData объекта и добавление данных формы
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', tel);
+
+    try {
+      // Замените 'URL_К_ВАШЕМУ_AJAX.PHP' на реальный URL вашего скрипта на сервере
+      const response = await axios.post('../../ajax.php', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (response.data === '1') {
+        // Успешная отправка, отображаем модальное окно успеха или любое другое уведомление
+        <SuccessModal />
+        // Вызов SuccessModal (проверьте, нужен ли здесь вызов компонента)
+      } else {
+        // Обработка ошибок с сервера
+        <SuccessModal />
+      }
+
+      // Сброс формы
+      setName('');
+      setTel('');
+    } catch (error) {
+      console.error('Ошибка при отправке формы: ', error);
+      alert('Не удалось отправить форму');
+    }
+  };
 
   return (
     <div>
       <div class="overlay overlay-form" id="overlay-form" >
         <form action="" class="feedback-form telegram-form" id="form-popup" onSubmit={handleSubmit}>
           <div class="form-inner">
-            <h2
-              class="caption language-change"
-              id="form-header"
-              data-ru="Получите ответы на все свои вопросы"
-              data-uz="Barcha savollaringizga javob oling"
-            >
-              Получите ответы на все свои вопросы
-            </h2>
-            <p
-              class="form-description language-change"
-              id="form-desc"
-              data-ru="Заполните форму ниже и я свяжусь с Вами в ближайшее время!"
-              data-uz="Quyidagi shaklni to'ldiring va men tez orada siz bilan bog'lanaman!"
-            >
-              Заполните форму ниже и я свяжусь с Вами в ближайшее время!
-            </p>
-
+          <h1 className="caption language-change" id="form-header">
+            {t('formPopup.header')}
+          </h1>
+          <p className="form-description language-change" id="form-desc">
+            {t('formPopup.description')}
+          </p>
             <div class="form-content">
               <label for="name" class="form-label">
                 <img src={Avatar} class="input-icon" alt="" />
@@ -63,10 +70,10 @@ export const Consult = ({ closeModal }) => {
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="Ваше имя"
+                  placeholder={t('formPopup.namePlaceholder')}
                   data-uz="Sizning ismingiz"
-                  required=""
-				  value={name}
+                  required
+				        value={name}
             	  onChange={handleNameChange}
                 />
               </label>
@@ -74,21 +81,21 @@ export const Consult = ({ closeModal }) => {
               <label for="phone" class="form-label">
                 <img src={Telephone} class="input-icon" alt="" />
                 <input
-                  type="text"
+                  type="number"
                   name="phone"
                   id="phone"
                   class="masked"
-                  placeholder="Ваш телефон"
-                  required=""
-				  value={tel}
+                  placeholder={t('formPopup.phonePlaceholder')}
+                  required
+				        value={tel}
             	  onChange={handleTelChange}
                 />
               </label>
 
               <label for="submit" class="form-label">
-                <button class="main-btn" type="submit" id="submit2">
-                  Записаться на консультацию
-                </button>
+              <button className="main-btn" type="submit">
+            {t('formPopup.submitButtonText')}
+          </button>
               </label>
 
               <label for="policy2" class="policy-item">
@@ -99,23 +106,18 @@ export const Consult = ({ closeModal }) => {
                   id="policy2"
                 />
                 <div class="square square_active" id="square2">
-                  <img
-                    src="images/grephic--check.svg"
-                    alt=""
-                    class="okay-img"
-                  />
                 </div>
-                <p class="language-change policy__text">
-                  <span>Cогласен/а на</span> обработку персональных данных
-                </p>
+                <p className="policy__text">
+            <span>{t('formPopup.agreement')}</span>
+          </p>
               </label>
             </div>
           </div>
           <div onClick={closeModal} class="close-item">
-            <img src={Close} alt="" />
+            <img src={Close}alt={t('formPopup.closeButtonAlt')} />
           </div>
 
-          <img src={Nafisa} alt="nafisa" class="popup-human" />
+          <img src={Nafisa} alt="nafisa" className="popup-human" />
         </form>
       </div>
     </div>

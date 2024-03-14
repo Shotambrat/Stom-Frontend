@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useLayoutEffect} from 'react';
 import './style/Section2.css';
-import FooterLogo from './../assets/svg/tooth-svgrepo-com.svg'
+import FooterLogo from './../assets/img/logo_footer.png'
 import SectioniMG2 from './../assets/img/section-2.png';
 import Uslugi1 from './../assets/img/usligi-1.png'
 import Uslugi2 from './../assets/img/usligi-2.png'
@@ -10,26 +10,86 @@ import Uslugi5 from './../assets/img/usligi-5.png'
 import Uslugi6 from './../assets/img/usligi-6.png'
 import Problems from './../assets/img/problems.png'
 import Cart2 from './../assets/svg/left-arrow-direction-svgrepo-com.svg';
+import { useTranslation } from 'react-i18next';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 
 
 export default function Section2() {
-		const [activeItem, setActiveItem] = useState("dot-item-5"); // По умолчанию активен пятый элемент
+	const { t } = useTranslation();
+	const [activeItem, setActiveItem] = useState("dot-item-5"); // По умолчанию активен пятый элемент
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const openModal = () => {
+        setModalOpen(true);
+    };
 	  
 		const handleMouseEnter = (itemId) => {
 		  setActiveItem(itemId);
 		};
+		useLayoutEffect(() => {
+
+			const items = document.querySelectorAll('.uslugi__item');
+
+			gsap.registerPlugin(ScrollTrigger);
+		
+			gsap.fromTo('.fade__right', {
+			  opacity: 0,
+			  x: -150,
+			}, {
+				opacity: 1,
+				x: 0,
+				scrollTrigger: {
+				  trigger: '.fade__right',
+				  start: 'top center',
+				//   end: 'bottom center',
+				  toggleActions: 'play none none reverse'
+				}
+			});
+		
+			gsap.fromTo('.about-vrach', {
+			  opacity: 0,
+			  x: 150,
+			}, {
+				opacity: 1,
+				x: 0,
+				scrollTrigger: {
+				  trigger: '.about-vrach',
+				  start: 'top center',
+				  end: 'bottom center',
+				  toggleActions: 'play none none reverse'
+				}
+			});
+
+			items.forEach(item => {
+				gsap.fromTo(item, {
+				  opacity: 0,
+				  x: -400,
+				}, {
+				  opacity: 1,
+				  x: 0,
+				  duration: 0.1,
+				  scrollTrigger: {
+					trigger: item,
+					start: 'bottom-=200px center',
+					end: 'top center',
+					toggleActions: 'play none none reverse',
+				  }
+				});
+			  });
+		  }, []);
   return (
     <>
     <section class="section-2">
 		<div class="container">
 			<div class="advantages">
-				<div class="advantage-item">
-					<span class="advantage-text language-change">Любовь побеждает
-						все, кроме бедности и зубной боли</span>
+				<div className="advantage-item1">
+				<span className="advantage-text">{t('aboutDoctor.citate')}</span>
 				</div>
 
 
-				<div class="advantage-item">
+				<div className="advantage-item">
 					<img src={FooterLogo} alt="" />
 				</div>
 			</div>
@@ -41,7 +101,7 @@ export default function Section2() {
 		<div class="container">
 			<div class="grid-2-part">
 				<div>
-					<img src={SectioniMG2} alt="" data-aos="fade-right" />
+					<img src={SectioniMG2} alt="" className='fade__right' />
 				</div>
 				<div class="about-vrach" data-aos="fade-left">
 
@@ -49,16 +109,8 @@ export default function Section2() {
 					<div class="slidedown">
 						<div class="slidedown__block">
 							<div class="slidedown__body">
-								<b>Приветствую!
-									Я – Нафиса Шухратовна, семейный стоматолог с 12 летним стажем, посвященного
-									улучшению улыбок.</b>
-
-								<p>
-									Оказываю полный спектр услуг – от удаления кариеса до установки протезов. <br />
-									Специализируюсь не только на лечении, но и на сохранение здоровья зубов путем
-									эффективной профилактики. Стремлюсь к комфортному и безболезненному проведению
-									процедур. Свой кабинет вижу как уютное пространство, где каждый чувствует себя
-									защищенным.</p>
+							<b>{t('aboutDoctor.intro')}</b>
+							<p>{t('aboutDoctor.details')}</p>
 							</div>
 						</div>
 						
@@ -70,42 +122,36 @@ export default function Section2() {
 
   <section class="section-3">
 		<div class="container">
-			<h2 class="language-change" data-ru="Ко мне вы можете обратиться по таким специализациям:"
-				data-uz="Siz menga quyidagi mutaxassisliklar bo'yicha murojaat qilishingiz mumkin:">Ко мне вы можете
-				обратиться <b>по таким специализациям:</b></h2>
+			<h2>{t('specializations.title')}</h2>
 
 			<div class="uslugi">
 
 				<div class="uslugi__item">
-					<p>Лечение <br /> Пломбирование </p>
+				<p>{t('specializations.items.treatmentAndFilling')}</p>
 					<img src={Uslugi1} alt="" />
 				</div>
 
-				<div class="uslugi__item" data-aos="fade-right">
-					<p class="language-change" data-ru="Удаление зубов Реставрация" data-uz="Tishlarni olib tashlash
-					Qayta tiklash">
-						Удаление зубов <br /> Реставрация</p>
+				<div class="uslugi__item">
+				<p>{t('specializations.items.toothRemovalAndRestoration')}</p>
 					<img src={Uslugi2} alt="" />
 				</div>
 
-				<div class="uslugi__item" data-aos="fade-right">
-					<p class="language-change" data-ru="Коронки" data-uz="Tojlar">Коронки</p>
+				<div class="uslugi__item">
+				<p>{t('specializations.items.crowns')}</p>
 					<img src={Uslugi3} alt="" />
 				</div>
-
-				<div class="uslugi__item" data-aos="fade-right">
-					<p class="language-change" data-ru="Имплантаты" data-uz="Implantlar">Имплантаты</p>
+				<div class="uslugi__item">
+				<p>{t('specializations.items.implants')}</p>
 					<img src={Uslugi4} alt="" />
 				</div>
 
-				<div class="uslugi__item" data-aos="fade-right">
-					<p class="language-change" data-ru="Виниры" data-uz="Qoplamalar">Виниры</p>
+				<div class="uslugi__item">
+				<p>{t('specializations.items.veneers')}</p>
 					<img src={Uslugi5} alt="" />
 				</div>
 
-				<div class="uslugi__item uslugi__item_brown popup-btn" data-aos="fade-right">
-					<p class="language-change" data-ru="Записаться на консультацию"
-						data-uz="Maslahat olish uchun ro'yxatdan o'ting">Записаться на косультацию</p>
+				<div onClick={openModal} class="uslugi__item uslugi__item_brown popup-btn">
+				<p>{t('specializations.consultationButton')}</p>
 					<img src={Uslugi6} alt="" />
 				</div>
 
@@ -116,8 +162,12 @@ export default function Section2() {
 	<section class="section-4">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="language-change" data-ru="Какие проблемы решаю?" data-uz="Qanday muammolar hal qilinadi?">
-					Какие проблемы <b>решаю?</b></h2>
+			<h2>
+				<b>
+            {t('section4.title')}
+
+				</b>
+          	</h2>
 
 				<div class="problems">
 					<img src={Problems} alt="" />
@@ -128,20 +178,14 @@ export default function Section2() {
 						className={`dot-item dot-item-1 dot-item-left ${activeItem === "dot-item-1" ? "dot-item-active" : ""}`}
 						onMouseEnter={() => handleMouseEnter("dot-item-1")}
 					>
-							<b class="dot-title language-change" data-ru="Кариес и зубная дека"
-								data-uz="Karies va tish palubasi">Кариес и зубная дека</b>
+							 <b className="dot-title">{t('section4.problems.cariesAndToothDecay.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Кариес и зубная дека"
-										data-uz="Karies va tish palubasi">Кариес и зубная дека</p>
+									<p>{t('section4.problems.cariesAndToothDecay.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change"
-										data-ru="Стоматолог проводит осмотр и диагностику, затем удаляет пораженные ткани и восстанавливает поврежденные зубы с использованием пломб и реставраций."
-										data-uz="Tish shifokori tekshiruv va diagnostika o'tkazadi, so'ngra ta'sirlangan to'qimalarni olib tashlaydi va shikastlangan tishlarni plomba va restavratsiya yordamida tiklaydi.">
-										Стоматолог проводит осмотр и диагностику, затем удаляет пораженные ткани и
-										восстанавливает поврежденные зубы с использованием пломб и реставраций.</p>
+								<p>{t('section4.problems.cariesAndToothDecay.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -149,20 +193,14 @@ export default function Section2() {
 							className={`dot-item dot-item-2 dot-item-left ${activeItem === "dot-item-2" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-2")}
 						>
-							<b class="dot-title language-change" data-ru="Пародонтит и гингивит"
-								data-uz="Periodontit va gingivit">Пародонтит и гингивит</b>
+							<b className="dot-title">{t('section4.problems.periodontitisAndGingivitis.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Пародонтит и гингивит"
-										data-uz="Periodontit va gingivit">Пародонтит и гингивит</p>
+									<p>{t('section4.problems.periodontitisAndGingivitis.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="На первой консультации я смогу поставить вам точный диагноз и прописать план
-									лечения со всеми расценками, которые осанутся неизменными"
-										data-uz="Birinchi maslahatlashuvda men sizga aniq tashxis qo'yishim va o'zgarishsiz qoladigan barcha stavkalar bilan davolash rejasini yozishim mumkin">
-										На первой консультации я смогу поставить вам точный диагноз и прописать план
-										лечения со всеми расценками, которые осанутся неизменными</p>
+								<p>{t('section4.problems.periodontitisAndGingivitis.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -170,19 +208,14 @@ export default function Section2() {
 							className={`dot-item dot-item-3 dot-item-left ${activeItem === "dot-item-3" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-3")}
 						>
-							<b class="dot-title language-change" data-ru="Ортодонтия"
-								data-uz="Ortodontiya">Ортодонтия</b>
+							<b className="dot-title">{t('section4.problems.orthodontics.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2}alt="" class="cart2" />
-									<p class="language-change" data-ru="Ортодонтия" data-uz="Ortodontiya">Ортодонтия</p>
+									<p>{t('section4.problems.orthodontics.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="В своей работе я использую только высококлассные материалы, качество которых
-									подтверждено сертификатами"
-										data-uz="Men o'z ishimda faqat yuqori sifatli materiallardan foydalanaman, ularning sifati sertifikatlar bilan tasdiqlangan">
-										В своей работе я использую только высококлассные материалы, качество которых
-										подтверждено сертификатами</p>
+								<p>{t('section4.problems.orthodontics.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -190,19 +223,14 @@ export default function Section2() {
 							className={`dot-item dot-item-4 dot-item-left ${activeItem === "dot-item-4" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-4")}
 						>
-							<b class="dot-title language-change" data-ru="Хирургическое вмешательство"
-								data-uz="Jarrohlik aralashuvi">Хирургическое вмешательство</b>
+							<b className="dot-title">{t('section4.problems.surgicalIntervention.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Хирургическое вмешательство"
-										data-uz="Jarrohlik aralashuvi">Хирургическое вмешательство</p>
+									<p>{t('section4.problems.surgicalIntervention.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="Я слежу за тем, чтобы во время приема пациент не испытывал ни эмоциональный, ни
-									физический дискомфорт." data-uz="Qabul paytida bemor hissiy yoki jismoniy noqulaylikni boshdan kechirmasligiga ishonch hosil qilaman.">
-										Я слежу за тем, чтобы во время приема пациент не испытывал ни эмоциональный, ни
-										физический дискомфорт.</p>
+								<p>{t('section4.problems.surgicalIntervention.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -211,20 +239,14 @@ export default function Section2() {
 							className={`dot-item dot-item-5 dot-item-right ${activeItem === "dot-item-5" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-5")}
 						>
-							<b class="dot-title language-change" data-ru="Травмы и чрезмерный износ"
-								data-uz="Jarohatlar va haddan tashqari eskirish">Травмы и чрезмерный износ</b>
+							<b className="dot-title">{t('section4.problems.traumaAndWear.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2}alt="" class="cart2" />
-									<p class="language-change" data-ru="Травмы и чрезмерный износ"
-										data-uz="Jarohatlar va haddan tashqari eskirish">Травмы и чрезмерный износ</p>
+									<p>{t('section4.problems.traumaAndWear.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="Система очистки инструментов в несколько этапов гарантирует 100% стерилизацию.
-									Половина материалов являются одноразовыми."
-										data-uz="Asboblarni tozalash tizimi bir necha bosqichda 100% sterilizatsiyani kafolatlaydi. Materiallarning yarmi bir martalik.">
-										Система очистки инструментов в несколько этапов гарантирует 100% стерилизацию.
-										Половина материалов являются одноразовыми.</p>
+								<p>{t('section4.problems.traumaAndWear.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -232,23 +254,14 @@ export default function Section2() {
 							className={`dot-item dot-item-6 dot-item-right ${activeItem === "dot-item-6" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-6")}
 						>
-							<b class="dot-title language-change"
-								data-ru="Определение и лечение рака и других заболеваний"
-								data-uz="Saraton va boshqa kasalliklarni aniqlash va davolash">Определение и лечение
-								рака и других заболеваний</b>
+							<b className="dot-title">{t('section4.problems.cancerAndOtherDiseases.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Определение и лечение рака и других заболеваний"
-										data-uz="Saraton va boshqa kasalliklarni aniqlash va davolash">Определение и
-										лечение рака и других заболеваний</p>
+									<p>{t('section4.problems.cancerAndOtherDiseases.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="У меня на постоянной основе действуют различные системы лояльности. Так же
-									доступно лечение в банковскую рассрочку"
-										data-uz="Menda doimiy ravishda turli xil sodiqlik tizimlari mavjud. Bankni bo'lib-bo'lib to'lash orqali davolanish ham mavjud">
-										У меня на постоянной основе действуют различные системы лояльности. Так же
-										доступно лечение в банковскую рассрочку</p>
+								<p>{t('section4.problems.cancerAndOtherDiseases.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -256,20 +269,14 @@ export default function Section2() {
 							className={`dot-item dot-item-7 dot-item-right ${activeItem === "dot-item-7" ? "dot-item-active" : ""}`}
 							onMouseEnter={() => handleMouseEnter("dot-item-7")}
 						>
-							<b class="dot-title language-change" data-ru="Стоматологическая эстетика"
-								data-uz="Tish estetikasi">Стоматологическая эстетика</b>
+							  <b className="dot-title">{t('section4.problems.dentalAesthetics.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Стоматологическая эстетика"
-										data-uz="Tish estetikasi">Стоматологическая эстетика</p>
+									<p>{t('section4.problems.dentalAesthetics.title')}</p>
 								</div>
 								<div class="problem-info">
-									<p class="language-change"
-										data-ru="Проведение процедур по отбеливанию зубов, наращиванию зубов, восстановлению формы зубов и улучшению общей внешности улыбки."
-										data-uz="Tishlarni oqartirish, tishlarni qurish, tish shaklini tiklash va tabassumning umumiy ko'rinishini yaxshilash bo'yicha protseduralarni o'tkazish.">
-										Проведение процедур по отбеливанию зубов, наращивание зубов, восстановление
-										формы зубов и улучшению общей внешности улыбки.</p>
+								<p>{t('section4.problems.dentalAesthetics.description')}</p>
 								</div>
 							</div>
 						</div>
@@ -278,21 +285,16 @@ export default function Section2() {
 							onMouseEnter={() => handleMouseEnter("dot-item-8")}
 							onMouseLeave={() => setActiveItem(null)}
               			>	
-							<b class="dot-title language-change" data-ru="Профилактика и обучение пациентов"
-								data-uz="Bemorlarning oldini olish va o'qitish">Профилактика и обучение пациентов</b>
+							 <b className="dot-title">{t('section4.problems.preventionAndEducation.title')}</b>
 							<div class="problem-content">
 								<div class="problem-header">
 									<img src={Cart2} alt="" class="cart2" />
-									<p class="language-change" data-ru="Профилактика и обучение пациентов"
-										data-uz="Bemorlarning oldini olish va o'qitish">Профилактика и обучение
-										пациентов</p>
+									<p>{t('section4.problems.preventionAndEducation.title')}</p>
+
 								</div>
 								<div class="problem-info">
-									<p class="language-change" data-ru="Я иду в ногу со временем, поэтому использую только новейшее дорогостоящее
-									оборудование, чтобы Вам было максимально комфортно."
-										data-uz="Men zamon bilan hamnafasman, shuning uchun imkon qadar qulay bo'lishingiz uchun faqat eng yangi qimmatbaho uskunalardan foydalanaman.">
-										Я иду в ногу со временем, поэтому использую только новейшее дорогостоящее
-										оборудование, чтобы Вам было максимально комфортно.</p>
+								<p>{t('section4.problems.preventionAndEducation.description')}</p>
+
 								</div>
 							</div>
 						</div>

@@ -284,4 +284,37 @@
   .swiper__inner {
     overflow: hidden;
   }
-  
+  .unClickable p {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+  @media only screen and (max-width: 768px) {
+
+  }
+
+  @media only screen and (max-width: 574px) {
+    .container .contact-wrap .contact-info {
+      transform: scale(0.90)
+    }
+
+    .contact-info .contact-email a {
+      font-size: 0.7em;
+    }
+
+    .section-13 .contact-wrap .header__info .phone-and-social .phone-link {
+      font-size: 22px;
+    }
+
+    footer .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+  } 

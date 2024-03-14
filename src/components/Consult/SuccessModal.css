@@ -71,3 +71,11 @@
     cursor: pointer;
     z-index: 3
 }
+
+@media only screen and (max-width: 574px) {
+    .popup-content b {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+}

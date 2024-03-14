@@ -366,3 +366,60 @@
     max-height: 1000px; /* Адаптируйте это значение под ваш контент */
     opacity: 0;
   }
+
+  
+
+
+
+  @media only screen and (max-width: 900px) {
+    .huhuhu .dantist img {
+      display: none;
+    }
+
+    .huhuhu {
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .section-11 .faq {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media only screen and (max-width: 574px) {
+    .consultacia-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .form-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .form-content .main-btn {
+      padding: 0 20px;
+    }
+
+    .section-10 .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    .section-10 .s10-img {
+      display: block;
+      position: relative;
+      margin-right: 0;
+      width: 100%;
+      margin-top: -2rem;
+    }
+
+    .section-10 .s10-content {
+      padding: 70px 0;
+  
+      margin: auto
+    }
+  }

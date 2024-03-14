@@ -111,3 +111,34 @@
 #form-popup img {
     margin-bottom: 0px;
 }
+
+
+@media only screen and (max-width: 574px) {
+  #overlay-form #form-popup {
+    transform: scale(0.9);
+  }
+  #overlay-form #form-popup h1 {
+    font-size: 20px;
+  }
+
+  #overlay-form #form-popup p {
+    font-size: 15px;
+  }
+
+  #overlay-form .popup-human {
+    display: none;
+  }
+
+  #overlay-form #form-popup input {
+    width: 90%;
+  }
+
+  #overlay-form #form-popup .main-btn {
+    width: 90%;
+  }
+
+
+  #overlay-form #form-popup .policy__checkbox {
+    width: 50px;
+  }
+} 

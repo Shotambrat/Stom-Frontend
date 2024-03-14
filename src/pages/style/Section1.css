@@ -272,7 +272,7 @@
     max-width: 620px;
     min-width: 320px;
     padding-top: 100px;
-    padding-left: 100px;
+    padding-left: 0;
   }
   
   .vrach-wrap img {
@@ -292,11 +292,13 @@
   main .main__container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 620px 1fr;
-    grid-template-columns: 620px 1fr;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   
   main .vrach-wrap {
+    min-width:500px;
+    display: flex;
     position: relative;
   }
   
@@ -345,4 +347,96 @@
   
   h2 b {
     font-weight: bold;
+  }
+
+  .social-wrap button {
+    border-radius: 5px;
+    margin-left: 6px;
+    height: 20px;
+    padding: 1px 4px 3px 4px;
+    border: 1px solid #56c1ff;
+    transition: .3s;
+    /* background-color: rgb(238, 131, 131); */
+  }
+
+  .social-wrap button:hover {
+    /* background-color: rgb(255, 4, 58); */
+    color: #56c1ff;
+  }
+
+  /* .container {
+    display: flex;
+  } */
+
+  @media only screen and (max-width: 1024px) {
+    main .main__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main .vrach-wrap .vrach-info {
+      background: #FFFFFF;
+      -webkit-box-shadow: 0px 4px 32px rgba(112, 156, 243, 1);
+      box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      min-width: 300px;
+      padding: 20px 15px;
+      max-height: 100px;
+      position: relative;
+      left: -200px;
+      bottom: -100px;
+      margin-bottom: 40px;
+      margin-left: 54px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+  @media only screen and (max-width: 768px) {
+    main .vrach-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main .vrach-wrap .vrach-info {
+      background: #FFFFFF;
+      -webkit-box-shadow: 0px 4px 32px rgba(112, 156, 243, 1);
+      box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      min-width: 300px;
+      padding: 20px 15px;
+      max-height: 100px;
+      position: relative;
+      left: 50px;
+      bottom: 0;
+      margin-bottom: 40px;
+      margin-left: 54px;
+    }
+  }
+
+  @media only screen and (max-width: 574px) {
+    .btn-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-wrap .btn-info {
+      margin-top: 20px;
+      margin-right: 60px;
+    }
+
+    .header__info .phone-and-social {
+      display: flex;
+    }
+
+    .main__container .main__content h1 {
+      font-size:20px;
+    }
+
+    .main__container .main__content h6 {
+      font-size: 15px;
+    }
   }

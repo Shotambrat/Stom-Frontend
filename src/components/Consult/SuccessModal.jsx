@@ -1,34 +1,31 @@
 import React from "react";
 import './SuccessModal.css';
 import Success from './../../assets/img/success.png';
-import Close from './../../assets/svg/close.svg'
+import Close from './../../assets/svg/close.svg';
+import { useTranslation } from 'react-i18next';
 
 
 const SuccessModal = () => {
+
+  const { t } = useTranslation();
   return (
     <div>
       <div class="overlay overlay-success" id="overlay-success">
         <div class="success-popup">
           <div class="popup-content">
-            <img src={Success} alt="" />
+            <img src={Success} alt="Success" />
 
             <b
-              class="language-change"
-              data-ru="Ваша заявка принята!"
-              data-uz="Sizning arizangiz qabul qilindi!"
             >
-              Ваша заявка принята!
+              {t('successPopup.message')}
             </b>
             <p
-              class="language-change"
-              data-ru="Ожидайте звонка.Я свяжусь с Вами в ближайшее время."
-              data-uz="Qo'ng'iroqni kuting. Tez orada siz bilan bog'lanaman."
             >
-              Ожидайте звонка.Я свяжусь с Вами в ближайшее время.
+              {t('successPopup.description')}
             </p>
           </div>
           <div class="close-item">
-            <img src={Close} alt="" />
+            <img src={Close} alt="Close" />
           </div>
         </div>
       </div>

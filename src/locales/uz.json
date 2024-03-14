@@ -1,0 +1,235 @@
+{
+  "header": {
+    "callMe": "Menga qo'ng'iroq qiling",
+    "phone": "+998 97 282 10 15",
+    "changeLanguage": "ru"
+  },
+  "main": {
+    "location": "Toshkent",
+    "servicesCaption": "Kompleks stomatologiya xizmatlarini",
+    "servicesCaptionSpan": "butunlashtirilgan tarzda",
+    "smilesYears": "Men mukammal tabassumlarni beraman",
+    "smilesYearsSpan": "12 yildan beri",
+    "consultationButtonText": "Konsultatsiyaga yozilish",
+    "consultationButtonInfo": "Xoziroq maslahat uchun ro'yxatdan o'ting"
+  },
+  "doctorInfo": {
+    "name": "Xusenova Nafisa Shuxratovna",
+    "specialization": "Stomatolog-implantolog, ortoped"
+  },
+  "aboutDoctor": {
+    "citate":"Sevgi qashshoqlik va tish og'rig'idan boshqa hamma narsani yutadi",
+    "intro": "Salom! Men Nafisa Shuxratovna, tabassumni yaxshilashga bag'ishlangan 12 yillik oilaviy stomatologman.",
+    "details": "Men kariesni olib tashlashdan protezlarni o'rnatishgacha bo'lgan barcha xizmatlarni taqdim etaman. Men nafaqat davolanishga, balki samarali profilaktika orqali tish sog'lig'ini saqlashga ham ixtisoslashganman. Men protseduralarni qulay va og'riqsiz bajarishga intilaman. Men o'z ofisimni hamma o'zini himoyalangan his qiladigan qulay joy sifatida ko'raman."
+  },
+  "specializations": {
+    "title": "Siz menga quyidagi mutaxassisliklar bo'yicha murojaat qilishingiz mumkin:",
+    "items": {
+      "treatmentAndFilling": "Davolash va plombalash",
+      "toothRemovalAndRestoration": "Tishlarni olib tashlash va qayta tiklash",
+      "crowns": "Tojlar",
+      "implants": "Implantlar",
+      "veneers": "Venerlar"
+    },
+    "consultationButton": "Konsultatsiyaga yozilish"
+  },
+  "section4": {
+    "title": "Qanday muammolar hal qilinadi?",
+    "problems": {
+      "cariesAndToothDecay": {
+        "title": "Karies va tish palubasi",
+        "description": "Tish shifokori tekshiruv va diagnostika o'tkazadi, so'ngra ta'sirlangan to'qimalarni olib tashlaydi va shikastlangan tishlarni plomba va restavratsiya yordamida tiklaydi."
+      },
+      "periodontitisAndGingivitis": {
+        "title": "Periodontit va gingivit",
+        "description": "Birinchi maslahatlashuvda men sizga aniq tashxis qo'yishim va o'zgarishsiz qoladigan barcha stavkalar bilan davolash rejasini yozishim mumkin."
+      },
+      "orthodontics": {
+        "title": "Ortodontiya",
+        "description": "Men o'z ishimda faqat yuqori sifatli materiallardan foydalanaman, ularning sifati sertifikatlar bilan tasdiqlangan."
+      },
+      "surgicalIntervention": {
+        "title": "Jarrohlik aralashuvi",
+        "description": "Qabul paytida bemor hissiy yoki jismoniy noqulaylikni boshdan kechirmasligiga ishonch hosil qilaman."
+      },
+      "traumaAndWear": {
+        "title": "Jarohatlar va haddan tashqari eskirish",
+        "description": "Asboblarni tozalash tizimi bir necha bosqichda 100% sterilizatsiyani kafolatlaydi. Materiallarning yarmi bir martalik."
+      },
+      "cancerAndOtherDiseases": {
+        "title": "Saraton va boshqa kasalliklarni aniqlash va davolash",
+        "description": "Menda doimiy ravishda turli xil sodiqlik tizimlari mavjud. Bankni bo'lib-bo'lib to'lash orqali davolanish ham mavjud."
+      },
+      "dentalAesthetics": {
+        "title": "Tish estetikasi",
+        "description": "Tishlarni oqartirish, tishlarni qurish, tish shaklini tiklash va tabassumning umumiy ko'rinishini yaxshilash bo'yicha protseduralarni o'tkazish."
+      },
+      "preventionAndEducation": {
+        "title": "Bemorlarning oldini olish va o'qitish",
+        "description": "Men zamon bilan hamnafasman, shuning uchun imkon qadar qulay bo'lishingiz uchun faqat eng yangi qimmatbaho uskunalardan foydalanaman."
+      }
+    }
+  },
+  "section6": {
+    "aboutMe": "Xusenova Nafisa Shuxratovna",
+    "aboutRole": "Stomatolog-implantolog, ortoped",
+    "workExperienceTitle": "2008 yildan beri tajriba olib boraman.",
+    "workPlaces": [
+      {
+        "years": "2008 yildan - 2012 yilgacha",
+        "place": "4-shahar poliklinikasi"
+      },
+      {
+        "years": "2012 yildan - 2017 yilgacha",
+        "place": "2-sonli viloyat stomatologiya klinikasi"
+      },
+      {
+        "years": "2017 yil",
+        "place": "Xususiy klinika"
+      }
+    ],
+    "educationTitle": "Ta'lim",
+    "educationPlaces": [
+      {
+        "years": "2001 — 2006",
+        "place": "Buxoro davlat tibbiyot instituti. Stomatologiya fakulteti"
+      },
+      {
+        "years": "2006 — 2008",
+        "place": "Yuz-yuz jarrohligi kafedrasida klinik ordinatura."
+      }
+    ]
+  },
+  "section7": {
+    "priceTitle": "Narxlar",
+    "priceList": [
+      {
+        "service": "Tekshirish",
+        "price": "50 000 sum."
+      },
+      {
+        "service": "Maslahat",
+        "price": "200 000 sum."
+      },
+      {
+        "service": "Rentgen",
+        "price": "40 000 sum."
+      },
+      {
+        "service": "Anesteziya",
+        "priceRange": "15 000 - 50 000 sum."
+      },
+      {
+        "service": "Kofferdam",
+        "price": "80 000 sum."
+      },
+      {
+        "service": "Retraktsion ipni qo'llash (1 tish)",
+        "price": "15 000 sum."
+      },
+      {
+        "service": "Professional tishlarni oqartirish",
+        "price": "1 500 000 sum."
+      },
+      {
+        "service": "Ultrasonik tishlarni tozalash",
+        "price": "600 000 sum."
+      }
+    ]
+  },
+  "section8": {
+    "firstConsultationTitle": "Birinchi maslahat qanday amalga oshiriladi?",
+    "consultationSteps": {
+      "inspectionAndDiagnostics": {
+        "title": "Og'iz bo'shlig'ini tekshirish va diagnostika qilish",
+        "description": "Tish shifokori muammolarni aniq aniqlash uchun rentgen nurlari yordamida tish va tish go'shti holatini tekshiradi."
+      },
+      "discussionAndTreatmentPlan": {
+        "title": "Muhokama va davolash rejasi",
+        "description": "Tekshiruvdan so'ng tish shifokori muammolarni muhokama qiladi, davolash usullarini taklif qiladi va bemor bilan tiklanish rejasini tuzadi."
+      },
+      "prevention": {
+        "title": "Oldini olish",
+        "description": "Tish shifokori muammolarni oldini olish uchun to'g'ri og'iz gigienasini, shu jumladan tozalash usullari, parvarishlash vositalari va muntazam tekshiruv tashriflarini tavsiya qiladi."
+      }
+    },
+    "consultationFormTitle": "Quyidagi shaklni to'ldiring va hozirda maslahat olish uchun ro'yxatdan o'ting",
+    "consultationForm": {
+      "namePlaceholder": "Sizning ismingiz",
+      "phonePlaceholder": "Sizning telefon raqamingiz",
+      "submitButtonText": "Konsultatsiyaga yozilish"
+    }
+  },
+  "section10": {
+    "consultationNow": "Hoziroq maslahat uchun ro'yxatdan o'ting",
+    "consultationButton": "Konsultatsiyaga yozilish"
+  },
+  "section11": {
+    "frequentQuestions": "Tez-tez beriladigan savollar",
+    "faqItems": [
+      {
+        "question": "Implant qo'yish og'riqli mi?",
+        "answer": "Keng tarqalgan fikrga qaramay, implantlarni o'rnatish jarayoni zamonaviy anestetiklar yordamida amalga oshirilgani uchun og'riqsiz hisoblanadi. Implantatsiyadan keyin bemor engil og'riqni his qiladi, bu mahalliy og'riq qoldiruvchi dori vositalari yordamida bartaraf etiladi."
+      },
+      {
+        "question": "Bemor implantlar ustidagi tishlarga qancha vaqt ichida ko'nikadi?",
+        "answer": "Bir nechta tishlarning yo'qligi sababli implantatsiya jarayoni uzoq vaqt talab qiladi, va yangi tishlarga moslashish bemor tishsiz qancha vaqt yurganiga bog'liq. Biroq, bemorlar tezda moslashadi, chunki faqat eski chaynash reflekslarini eslashlari kerak bo'ladi."
+      },
+      {
+        "question": "Kimlarga implantatsiya qilinmaydi?",
+        "answer": "Dekompensatsiyalangan shakldagi qandli diabet, yomon sifatli o'smalar, sil, surunkali alkogolizm va giyohvandlik kabi holatlarda bemorlarga implantatsiya qilinmaydi."
+      },
+      {
+        "question": "Implantlar qancha vaqt xizmat qiladi?",
+        "answer": "Implantlarning xizmat muddati cheklanmagan. Tog'ri o'rnatilgan va sifatli ortopedik tuzilishga ega implantlar, tegishli parvarish (yaxshi gigiena, muntazam tibbiy ko'rik va boshqalar) bilan butun umr xizmat qilishi mumkin."
+      },
+      {
+        "question": "Implantning ildiz otishiga nima to'sqinlik qilishi mumkin?",
+        "answer": "Shifokorning tavsiyalariga rioya qilmaslik, yomon odatlar (masalan, chekish, alkogol iste'mol qilish, narkotik moddalarni qabul qilish), shuningdek, implantni noto'g'ri o'rnatish protokoli va sifatsiz implant tizimlari implantning ildiz otishiga xalaqit berishi mumkin."
+      }
+    ]
+  },
+  "section12": {
+    "haveQuestions": "Savollar qoldimi? Shaxsan men bilan bog'laning"
+  },
+  "section13": {
+    "contactInfo": {
+      "address": "Toshkent, Nukus ko'chasi, «Lanvin Klinikasi»",
+      "phone": "+998 97 282 10 15",
+      "email": "xusenovanafisa17@gmail.com",
+      "schedule": "Dushanba-Shanba 09.00 dan 20.00 gacha",
+      "scheduleTitle": "Qabul jadvali",
+      "consultationButton": "Konsultatsiyaga yozilish"
+    }
+  },
+  "footer": {
+    "note": "*Sizning e'tiboringizni ushbu veb-sayt faqat ma'lumot maqsadida ekanligi va hech qanday sharoitda O'zbekiston Respublikasining Ma'muriy kodeksida belgilangan ommaviy taklif hisoblanmaydi.",
+    "privacyPolicy": "Maxfiylik siyosati",
+    "cookieUse": "Cookie-fayllardan foydalanish"
+  },
+  "formPopup": {
+    "header": "Barcha savollaringizga javob oling",
+    "description": "Quyidagi shaklni to'ldiring va men tez orada siz bilan bog'lanaman!",
+    "namePlaceholder": "Sizning ismingiz",
+    "phonePlaceholder": "Sizning telefon raqamingiz",
+    "submitButtonText": "Konsultatsiyaga yozilish",
+    "agreement": "Shaxsiy ma'lumotlarni qayta ishlashga roziman"
+  },
+  "successPopup": {
+    "message": "Sizning arizangiz qabul qilindi!",
+    "description": "Qo'ng'iroqni kuting. Tez orada siz bilan bog'lanaman."
+  },
+  "formPopup": {
+    "header": "Barcha savollaringizga javob oling",
+    "description": "Quyidagi shaklni to'ldiring va men tez orada siz bilan bog'lanaman!",
+    "namePlaceholder": "Sizning ismingiz",
+    "phonePlaceholder": "Sizning telefon raqamingiz",
+    "submitButtonText": "Konsultatsiyaga yozilish",
+    "agreement": "Shaxsiy ma'lumotlarni qayta ishlashga roziman",
+    "closeButtonAlt": "Yopish"
+  },
+  "successPopup": {
+    "message": "Sizning arizangiz qabul qilindi!",
+    "description": "Qo'ng'iroqni kuting. Tez orada siz bilan bog'lanaman."
+  }
+}

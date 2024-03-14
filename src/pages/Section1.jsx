@@ -1,42 +1,85 @@
-import React, {useState} from 'react';
+import React, {useState, useLayoutEffect} from 'react';
 import './style/Section1.css';
 import Nafisa from './../assets/img/nafisa.png';
-import  Logo from './../assets/svg/tooth-svgrepo-com.svg';
+import  Logo from './../assets/img/logo.png';
 import Telegramm from './../assets/svg/telegram-svgrepo-com.svg';
 import { Consult } from '../components/Consult/Consult';
 import Geo from './../assets/svg/geo-location-svgrepo-com.svg'
-
+import { useTranslation } from 'react-i18next'; // Импорт из react-i18next
+import gsap from 'gsap';
 
 export default function Section1() {
-
+	const { t, i18n } = useTranslation();
 	const [modalOpen, setModalOpen] = useState(false);
+
 
 	const openModal = () => {
         setModalOpen(true);
     };
 
+	const changeLanguage = (language) => {
+		i18n.changeLanguage(language);
+	};
+
+	useLayoutEffect(() => {
+		gsap.fromTo('.logologo', {
+		  y: -100,
+		  opacity: 0,
+		  stagger: 0.2,
+		}, {
+			duration: .3,
+			ease: 'linear',
+			y: 0,
+			opacity: 1,
+		});
+		gsap.fromTo('.main__content', {
+			x: -200,
+			opacity: 0,
+
+		  }, {
+			x: 0,
+			duration: .3,
+			opacity: 1,
+			ease: 'linear',
+		  });
+	  
+		  gsap.fromTo('.vrach-wrap', {
+			x: 200,
+			opacity: 0,
+		  }, {
+			x: 0,
+			duration: .3,
+			opacity: 1,
+			ease: 'linear',
+		  });
+	  }, []);
 
   return (
     <main>
 		<header>
 			<div class="container">
-				<div class="logo">
-					<img src={Logo} alt="" class="logo__img" />
+				<div className='logologo'>
+					<div className="logo">
+					<img src={Logo} alt="" />
+					</div>
 				</div>
 
-				<div class="header__info">
+			<div className='head-inf'>
+			<div class="header__info">
 					<div class="phone-and-social">
 						<a href="tel:+998972821015" class="phone-link">+998 97 282 10 15</a>
 						<div class="social-wrap">
 							<a href="https://t.me/dr_xusenova" class="social-link" target="_blank">
 								<img src={Telegramm} alt="" />
 							</a>
-							<button class="language-btn">Uz</button>
+							<button onClick={() => changeLanguage(t('header.changeLanguage'))}>{t('header.changeLanguage')}</button>
 						</div>
 					</div>
-					<button class="call-me-btn popup-btn language-change" onClick={openModal}>Перезвонить мне</button>
+					<button class="call-me-btn popup-btn" onClick={openModal}>{t('header.callMe')}</button>
 					{modalOpen && <Consult closeModal={() => setModalOpen(false)} />}
 				</div>
+			</div>
+
 			</div>
 		</header>
 
@@ -45,30 +88,22 @@ export default function Section1() {
 
 				<div class="geo_location">
 					<img src={Geo} alt="Geo" />
-					<p class="language-change">Ташкент</p>
+					<p>{t('main.location')}</p>
 				</div>
 
-				<h1 class="caption language-change">Комплексный спектр
-					стоматологических услуг <br /><span>под ключ</span></h1>
-				<h6 class="caption language-change" >Дарю идеальные улыбки уже <span>12
-						лет</span></h6>
-
+				<h1 class="caption language-change">{t('main.servicesCaption')} <br /><span>{t('main.servicesCaptionSpan')}</span></h1>
+				<h6 class="caption language-change" >{t('main.smilesYears')} <span>{t('main.smilesYearsSpan')}</span></h6>
 				<div class="btn-wrap">
-					<button class="main-btn popup-btn language-change" onClick={openModal}>Записаться на консультацию</button>
-
-					<p class="btn-info language-change" data-ru="Запишитесь прямо сейчас консультацию"
-						data-uz="Xoziroq maslahat uchun ro'yxatdan o'ting">Запишитесь прямо сейчас на консультацию</p>
+				<button class="main-btn popup-btn language-change" onClick={openModal}>{t('main.consultationButtonText')}</button>
+				<p class="btn-info language-change">{t('main.consultationButtonInfo')}</p>
 				</div>
 			</div>
 
 			<div class="vrach-wrap" data-aos="fade-left">
 				<img src={Nafisa} alt="Nafisa" class="nafisa" />
 				<div class="vrach-info">
-					<b class="vrach-name language-change" data-ru="Хусенова Нафиса Шухратовна"
-						data-uz="Xusenova Nafisa Shuxratovna">Хусенова Нафиса Шухратовна</b>
-					<hr />
-					<p class="vrach-role language-change" data-ru="Врач стоматолог-имплантолог,ортопед"
-						data-uz="Stomatolog-implantolog, ortoped">Врач стоматолог-имплантолог,ортопед</p>
+				<b class="vrach-name language-change">{t('doctorInfo.name')}</b> <hr />
+				<p class="vrach-role language-change">{t('doctorInfo.specialization')}</p>
 				</div>
 			</div>
 
