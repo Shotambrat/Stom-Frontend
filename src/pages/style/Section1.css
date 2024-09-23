@@ -108,7 +108,13 @@
     font-size: 18,5px;
     line-height: 1.35;
     color: rgb(0, 0, 0);
-  }
+    transition: all;
+    transition-duration: 300ms;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -ms-transition: 300ms;
+    -o-transition: 300ms;
+}
   
   .header__info .phone-and-social .phone-link:hover {
     text-decoration: none;
@@ -166,14 +172,14 @@
     background: transparent;
     text-decoration: none;
     border-bottom: 1px dashed;
-  }
-  
-  .call-me-btn:hover {
+    transition: color 300ms ease, border-bottom 300ms ease; /* Добавляем плавный переход для цвета и границы */
+}
+
+.call-me-btn:hover {
     color: rgba(112, 156, 243, 1);
-    text-decoration: none;
+    text-decoration-color: transparent;
     border-bottom: 0px dashed;
-  }
-  
+}
   .logo img {
     max-width: 6rem;
     margin-top: .5rem;

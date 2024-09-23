@@ -249,6 +249,12 @@
     /* justify-content: space-between; */
   }
 
+  .section-7 {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto !important;
+  }
+
   .section-7 .holah {
     margin-left: 100px;
     font-size: 3rem;

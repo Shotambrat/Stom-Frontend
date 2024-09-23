@@ -75,7 +75,7 @@ export default function Section1() {
 							<button onClick={() => changeLanguage(t('header.changeLanguage'))}>{t('header.changeLanguage')}</button>
 						</div>
 					</div>
-					<button class="call-me-btn popup-btn" onClick={openModal}>{t('header.callMe')}</button>
+					<button class="call-me-btn" onClick={openModal}>{t('header.callMe')}</button>
 					{modalOpen && <Consult closeModal={() => setModalOpen(false)} />}
 				</div>
 			</div>
