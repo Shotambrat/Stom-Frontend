@@ -70,7 +70,20 @@ export default function Section6() {
 
               <div class="header__info contact-item">
                 <div class="phone-and-social">
-                  <a href="tel:+998972821015" className="phone-link">
+                  <a
+                    onClick={() => {
+                      fetch(
+                        "https://api.stom-tashkent.uz/api/count?button=call",
+                        {
+                          method: "POST",
+                        }
+                      ).catch((error) => {
+                        console.error("Error:", error);
+                      });
+                    }}
+                    href="tel:+998972821015"
+                    className="phone-link"
+                  >
                     {t("section13.contactInfo.phone")}
                   </a>
                   <div class="social-wrap">
@@ -78,6 +91,16 @@ export default function Section6() {
                       href="https://t.me/dr_xusenova"
                       class="social-link"
                       target="_blank"
+                      onClick={() => {
+                        fetch(
+                          "https://api.stom-tashkent.uz/api/count?button=telegram",
+                          {
+                            method: "POST",
+                          }
+                        ).catch((error) => {
+                          console.error("Error:", error);
+                        });
+                      }}
                     >
                       <img src={Telegram} alt="teltel" />
                     </a>
@@ -94,7 +117,19 @@ export default function Section6() {
               <hr />
 
               <div class="contact-email contact-item">
-                <a href={`mailto:${t("section13.contactInfo.email")}`}>
+                <a
+                  onClick={() => {
+                    fetch(
+                      "https://api.stom-tashkent.uz/api/count?button=gmail",
+                      {
+                        method: "POST",
+                      }
+                    ).catch((error) => {
+                      console.error("Error:", error);
+                    });
+                  }}
+                  href={`mailto:${t("section13.contactInfo.email")}`}
+                >
                   {t("section13.contactInfo.email")}
                 </a>
               </div>
@@ -131,6 +166,16 @@ export default function Section6() {
             </div>
             <div>
               <a
+                onClick={() => {
+                  fetch(
+                    "https://api.stom-tashkent.uz/api/count?button=instagram",
+                    {
+                      method: "POST",
+                    }
+                  ).catch((error) => {
+                    console.error("Error:", error);
+                  });
+                }}
                 href="https://www.instagram.com/stom_tashkent/"
                 target="_blank"
                 class="footer__social --inst"
@@ -139,6 +184,16 @@ export default function Section6() {
               </a>
 
               <a
+                onClick={() => {
+                  fetch(
+                    "https://api.stom-tashkent.uz/api/count?button=telegram",
+                    {
+                      method: "POST",
+                    }
+                  ).catch((error) => {
+                    console.error("Error:", error);
+                  });
+                }}
                 href="https://t.me/dr_xusenova"
                 target="_blank"
                 class="footer__social --telegram"
@@ -150,7 +205,11 @@ export default function Section6() {
               <p className="privacy-policy">{t("footer.privacyPolicy")}</p>
               <p className="cookie-use">{t("footer.cookieUse")}</p>
             </div>
-            <a href="https://result-me.uz" target="_blank" class="">
+            <a
+              href="https://result-me.uz/api/redirect?from=c3RvbS10YXNo"
+              target="_blank"
+              class=""
+            >
               <img src={LogoResult} alt="" />
             </a>
           </div>
